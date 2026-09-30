@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador de Estudos</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page">
+
+    <section id="authView" class="card auth-card">
+      <div class="logo">📚</div>
+      <h1>Organizador de Estudos</h1>
+      <p class="subtitle">Entre ou crie sua conta para organizar suas tarefas.</p>
+
+      <form id="loginForm">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="seu@email.com" required>
+
+        <label for="password">Senha</label>
+        <input id="password" type="password" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+
+        <button class="btn primary" type="submit">Entrar</button>
+        <button class="btn secondary" type="button" id="createAccount">Criar conta</button>
+
+        <p id="authMessage" class="message"></p>
+      </form>
+    </section>
+
+    <section id="appView" hidden>
+      <header class="topbar card">
+        <div>
+          <span class="tag">FIREBASE</span>
+          <h1>Minhas tarefas</h1>
+          <p id="currentUser" class="muted"></p>
+        </div>
+        <button id="logout" class="btn secondary">Sair</button>
+      </header>
+
+      <section class="card">
+        <h2>Adicionar tarefa</h2>
+        <form id="taskForm" class="task-form">
+          <input id="taskTitle" type="text" maxlength="120" placeholder="Ex.: Estudar JavaScript" required>
+          <button class="btn primary" type="submit">Adicionar</button>
+        </form>
+        <p id="taskMessage" class="message"></p>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <div>
+            <h2>Tarefas</h2>
+            <p class="muted">Salvas no Cloud Firestore.</p>
+          </div>
+          <span id="counter" class="counter">0</span>
+        </div>
+        <ul id="taskList" class="task-list"></ul>
+        <p id="emptyState" class="empty">Nenhuma tarefa cadastrada.</p>
+      </section>
+    </section>
+
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
